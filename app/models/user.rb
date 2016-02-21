@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   def full_name
-    full_name = family_name  + given_name + 'さん'
+    full_name = family_name  + given_name
     return full_name
   end
 
