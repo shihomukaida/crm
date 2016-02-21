@@ -3,6 +3,7 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
   # 〜以外という場合はonlyの代わりにexceptをはめる
   before_action :set_company, only: [:new, :edit]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @customers = Customer.page(params[:page])
@@ -39,18 +40,19 @@ class CustomersController < ApplicationController
   end
 
   def destroy
-    @customer = Customer.find(params[:id])
     @customer.destroy
     redirect_to customer_url
   end
 
   private
-    def customer_params
-      params.require(:customer).permit( :family_name, :given_name, :email, :company_id, :post)
-    end
-
     def set_customer
       @customer = Customer.find(params[:id])
+    end
+    def set_company
+      @companies = Company.all
+    end
+    def customer_params
+      params.require(:customer).permit( :family_name, :given_name, :email, :company_id)
     end
 
 end

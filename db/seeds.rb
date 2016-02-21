@@ -9,10 +9,10 @@ Company.create(name: "スパルタ商事", url: "http://spartacamp.jp/", address
 Company.create(name: "株式会社ノーウォール", url: "http://nowall.co.jp/", address: "東京都新宿区西新宿6-15-1")
 Company.create(name: "ヤフー株式会社", url: "http://www.yahoo.co.jp/", address: "東京都港区赤坂9-7-1")
 
-Company.create(post: "社長")
-Company.create(post: "部長")
-Company.create(post: "課長")
-Company.create(post: "平社員")
+# Post.create(name: "社長")
+# Post.create(name: "部長")
+# Post.create(name: "課長")
+# Post.create(name: "平社員")
 
 100.times do |index|
   Customer.create(family_name: 'mukaida', given_name: 'sao', email: "sao#{index}@fdf.com", company_id: rand(3) + 1)
